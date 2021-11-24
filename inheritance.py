@@ -4,11 +4,11 @@ class Invited:
     email = ''
     age = ''
 #kids coming
-class Children:
+class Children(Invited):
     number_kids = ''
     Boy = ''
     Girl = ''
 #what they will bring
-class Adults:
+class Adults(Invited):
     Food_bringing = ''
     Drinks_bringing = ''
