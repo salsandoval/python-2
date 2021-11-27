@@ -7,14 +7,14 @@ class Dad:
     legs = 2
     arms = 2
 
-    def boss(self):
-        msg = "\nName: {}\nHair: {}\nEyes: {}\nSkin: {}\nLegs: {}\nArms: {}".format(self.name,self.hair,self.eyes,self.skin,self.legs,self.arms)
-        return msg
+def boss(self):
+    msg = "\nName: {}\nHair: {}\nEyes: {}\nSkin: {}\nLegs: {}\nArms: {}".format(self.name,self.hair,self.eyes,self.skin,self.legs,self.arms)
+    return msg
 
 
 
 # child class instance
-class mom(Dad):
+class mom:
     name = "Sally"
     hair = "Blond"
     eyes = "Blue"
@@ -22,12 +22,14 @@ class mom(Dad):
     legs = 2
     arms = 2
 
-    def realboss(self):
-        msg = "\nShe is the real boss of the family but lets Dad think he is!"
-        return msg
+def realboss():
+    msg = "\nShe is the real boss of the family but lets Dad think he is!"
+    return msg
 
     
 
+
+    
 
 
 
@@ -52,9 +54,9 @@ class mom(Dad):
 
 
 if __name__ == "__main__":
-    dad = Dad()
-    print(dad.boss())
+    print(boss(Dad))
+    print(boss(mom))
+    print(realboss())
     
-    realboss = RealBoss()
-    print(real_boss.boss())
-    print(mom.real_boss())
+    
+   
