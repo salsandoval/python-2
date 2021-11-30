@@ -3,13 +3,14 @@
 # create class
 class safe:
     def __init__(self):
-        self._privateVar = 6
+        self._protectVar = 0
+        self.__privateVar = 6
 
     def getprivate(self):
-        print(self._privateVar)
+        print(self.__privateVar)
 
     def setprivate(self, private):
-        self._privateVar = private
+        self.__privateVar = private
         
 # get data
 obj = safe()
