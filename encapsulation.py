@@ -1,6 +1,6 @@
 
 
-
+# create class
 class safe:
     def __init__(self):
         self._privateVar = 6
@@ -10,7 +10,8 @@ class safe:
 
     def setprivate(self, private):
         self._privateVar = private
-
+        
+# get data
 obj = safe()
 obj.getprivate()
 obj.setprivate(14)
