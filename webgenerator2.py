@@ -1,43 +1,38 @@
-
+import tkinter as tk
+from tkinter import *
 import webbrowser
 
-import tkinter as tk
+class ParentWindow(Frame):
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        self.master.title("Webpage Generator")
+        
+        self.labelTxt = Label(text="Would you like to create custom text for your webpage?", font=("Arial", 12))
+        self.labelTxt.grid(row=0, column=0, padx=20, pady=(20, 0))
+        
+        self.btnSubmit = Button(self.master, text="View Default", width=20, height=1, command=self.defaultEntry)
+        self.btnSubmit.grid(row=2, column=1, padx=(0, 10), pady=(0, 10))
+        
+        self.txtEntry = Entry(self.master, font=("Helvetica", 12))
+        self.txtEntry.grid(row=1, column=0, padx=(30, 15),pady=(10, 10), columnspan=3, sticky=W+E)
+        
+        self.btnSubmit = Button( self.master, text="Submit Custom Text", width=20, height=1, command=self.customEntry)
+        self.btnSubmit.grid(row=2, column=2, padx=(0, 10), pady=(0, 10))
+
+    def defaultEntry(self):
+        self.labelTxt = Label ( text = "test 1" )
 
 
-f = open('', '')
+    def customEntry(self):
+        self.labelTxt = Label ( text = "test 2" )
+        inp = self.txtEntry.get()
+        htmlFile = open("user_customized.html", "w")
+        htmlFormat = "<html>\n<body>\n<p>" + inp + "</p>\n</body>\n</html>"
+        htmlFile.write(htmlFormat)
+        htmlFile.close()
+        webbrowser.open_new_tab("user_customized.html")
 
-message =""
-
-
-f.write(message)
-f.close()
-
-frame = tk.Tk()
-frame.title("TextBox Input")
-frame.geometry('400x200')
-
-  
-def printInput():
-    inp = inputtxt.get(1.0, "end-1c")
-    lbl.config(text = "Provided Input: "+inp)
-  
-
-inputtxt = tk.Text(frame,
-                   height = 5,
-                   width = 20)
-  
-inputtxt.pack()
-  
-
-printButton = tk.Button(frame,
-                        text = "Print", 
-                        command = printInput)
-printButton.pack()
-  
-
-lbl = tk.Label(frame, text = "")
-lbl.pack()
-frame.mainloop()
-
-
-webbrowser.open_new_tab('')
+if __name__ == "__main__":
+    root = tk.Tk()
+    App = ParentWindow(root)
+    root.mainloop()
