@@ -1,14 +1,43 @@
-from tkinter import *
+
+import webbrowser
+
+import tkinter as tk
 
 
+f = open('', '')
 
-top = Tk()
-
-L1 = Label(top, text="New Page")
-L1.pack( side = LEFT)
-E1 = Entry(top, bd =5)
-E1.pack(side = RIGHT)
+message =""
 
 
+f.write(message)
+f.close()
 
-top.mainloop()
+frame = tk.Tk()
+frame.title("TextBox Input")
+frame.geometry('400x200')
+
+  
+def printInput():
+    inp = inputtxt.get(1.0, "end-1c")
+    lbl.config(text = "Provided Input: "+inp)
+  
+
+inputtxt = tk.Text(frame,
+                   height = 5,
+                   width = 20)
+  
+inputtxt.pack()
+  
+
+printButton = tk.Button(frame,
+                        text = "Print", 
+                        command = printInput)
+printButton.pack()
+  
+
+lbl = tk.Label(frame, text = "")
+lbl.pack()
+frame.mainloop()
+
+
+webbrowser.open_new_tab('')
