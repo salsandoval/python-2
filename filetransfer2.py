@@ -1,8 +1,7 @@
-import tkinter as tk
+import tkinter 
 from tkinter import *
 import shutil
 import os
-
 
 
 #set where the source of the files are
@@ -16,25 +15,24 @@ for i in files:
     #we are saying move the files represented by 'i' to their new destination
     shutil.move(source+i, destination)
 
-root = tk.Tk()
-root.withdraw()
+#root.withdraw()
 
-root.geometry('100x100')
+#root.geometry('100x100')
 
-btn = Button(root, text = 'Click me!', bd = '5',
-             command = root.destroy)
-btn.pack(side = 'top')
-root.mainloop()
+#btn = Button(root, text = 'Click me!', bd = '5',
+             #command = root.destroy)
+#btn.pack(side = 'top')
+#root.mainloop()
 
-file_path = filedialog.askopenfilename()
+#file_path = filedialog.askopenfilename()
 
-print(file_path)
+#print(file_path)
 
-input('press any key to exit')
+#input('press any key to exit')
 
-src_path = r"C:\Users\guapo\Desktop\receive"
-dst_path = r"C:\Users\guapo\Desktop\hold"
-shutil.move(src_path, dst_path)
+#src_path = r"C:\Users\guapo\Desktop\receive"
+#dst_path = r"C:\Users\guapo\Desktop\hold"
+#shutil.move(src_path, dst_path)
 
 def pickSourceDir():
     myDir = tKinter.filedialog.askdirectory()
@@ -59,7 +57,32 @@ def moveFiles():
             shutil.move(source + '/' + i, destination)
             print(i + ' was succesfully transferred.')
 
+m = tkinter.Tk()
+
+m.minsize(750, 150)
+m.title("Check Files")
+
+btn_Browse1 = Button(m, text="Browse...", padx=20, command=pickSourceDir)
+btn_Browse1.grid(row=0, column=0, padx=(20, 10), pady=(30, 0))
+
+source_dir = Entry(m, width=100)
+source_dir.grid(row=0, column=1, padx=20, pady=(30, 0), sticky=E)
+
+btn_Browse2 = Button(m, text="Browse...", padx=20, command=pickDestDir)
+btn_Browse2.grid(row=1, column=0, padx=(20, 10), pady=(10))
+
+destination_dir = Entry(m, width=100)
+destination_dir.grid(row=1, column=1, padx=20, pady=10, sticky=E)
+
+btn_check = Button(text="Check for files...", pady=10, command=moveFiles)
+btn_check.grid(row=2, column=0, padx=(20, 10), pady=(0, 15))
+
+btn_close = Button(text="Close Program", pady=10, command=m.destroy)
+btn_close.grid(row=2, column=1, padx=20, pady=(0, 15), sticky=E)
+
+m.mainloop()  
+                 
 
 
-if __name__ == '__main__':
-    
+
+  
