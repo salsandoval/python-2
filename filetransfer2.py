@@ -26,7 +26,7 @@ def moveFiles():
         file_path = os.path.join(source, i)
         hours_ago_24 = datetime.datetime.now() - timedelta(hours = 24)
         modification_time = os.path.getmtime(file_path)
-        date_time_ofTfile = datetime.datetime.fromtimestamp(modification_time)
+        date_time_of_file = datetime.datetime.fromtimestamp(modification_time)
         if hours_ago_24 < date_time_of_file:
             shutil.move(source + '/' + i, destination)
             print(i + ' was succesfully transferred.')
