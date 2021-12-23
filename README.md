@@ -1,2 +1,4 @@
 # python-2
- This is where ill upload my python code
+ these are basic projects written in Python. They use various modules such as tkinter or sqlite3.
+ 
+ 
